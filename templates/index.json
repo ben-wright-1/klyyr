@@ -40,19 +40,19 @@
         "proof_2": {
           "type": "proof",
           "settings": {
-            "text": "Hydroxyapatite"
+            "text": "10% Hydroxyapatite"
           }
         },
         "proof_3": {
           "type": "proof",
           "settings": {
-            "text": "Ingredient-Forward"
+            "text": "Minimal Ingredients"
           }
         },
         "proof_4": {
           "type": "proof",
           "settings": {
-            "text": "Designed for the Daily Ritual"
+            "text": "Nano + Micro"
           }
         }
       },
