@@ -19,6 +19,20 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   border-radius: 2rem;
 }
 
+.klyyr-hero-shell {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.klyyr-hero-shell::before {
+  background:
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.05), transparent 30%),
+    radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.95), transparent 38%);
+  opacity: 1;
+}
+
 .klyyr-home-shell::before {
   content: '';
   position: absolute;
@@ -144,7 +158,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   display: grid;
   gap: 2rem;
   align-items: end;
-  padding: clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(2rem, 5vw, 4.5rem) 0 clamp(2.5rem, 6vw, 5rem);
 }
 
 .klyyr-hero__content {
@@ -178,6 +192,12 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   filter: blur(24px);
   opacity: 0.88;
   transform: translate3d(0, 0, 0);
+}
+
+.klyyr-hero .klyyr-home-copy,
+.klyyr-hero .klyyr-home-subline,
+.klyyr-hero .klyyr-home-eyebrow {
+  opacity: 0.74;
 }
 
 .klyyr-hero__image-frame {
@@ -475,6 +495,10 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
     border-radius: 1.4rem;
   }
 
+  .klyyr-hero-shell {
+    border-radius: 0;
+  }
+
   .klyyr-home-shell::before {
     background:
       radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 28%),
@@ -517,7 +541,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
   .klyyr-hero__inner {
     gap: 1rem;
-    padding: 1rem 1rem 1.2rem;
+    padding: 0.9rem 0 1.4rem;
   }
 
   .klyyr-hero__content {
@@ -526,7 +550,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
   .klyyr-hero__visual {
     order: 2;
-    min-height: 16rem;
+    min-height: 15rem;
   }
 
   .klyyr-hero__foil {
