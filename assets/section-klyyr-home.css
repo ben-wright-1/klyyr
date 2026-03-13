@@ -579,7 +579,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   .klyyr-hero__visual {
     order: 2;
     min-height: 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .klyyr-hero__foil {
