@@ -1,0 +1,292 @@
+{{ 'section-klyyr-home.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign shell_style = 'light'
+
+  if section.settings.style == 'dark'
+    assign shell_style = 'dark'
+  elsif section.settings.style == 'foil'
+    assign shell_style = 'foil'
+  endif
+
+  assign section_layout = section.settings.layout
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section"
+  {% if section.settings.anchor_id != blank %}
+    id="{{ section.settings.anchor_id | handleize }}"
+  {% endif %}
+  style="{% render 'spacing-padding', settings: section.settings %}"
+  {{ section.shopify_attributes }}
+>
+  <div
+    class="
+      klyyr-home-shell
+      klyyr-home-shell--{{ shell_style }}
+      klyyr-editorial
+      klyyr-editorial--{{ section_layout }}
+      {% if section.settings.image_position == 'left' %}klyyr-editorial--image-left{% endif %}
+    "
+  >
+    <div class="klyyr-editorial__inner">
+      <div class="klyyr-editorial__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="klyyr-home-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="klyyr-editorial__title">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.body != blank %}
+          <div class="klyyr-editorial__body rte">{{ section.settings.body }}</div>
+        {% endif %}
+
+        {% if section.settings.accent_text != blank %}
+          <p class="klyyr-editorial__accent">{{ section.settings.accent_text }}</p>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <ul class="klyyr-editorial__points" role="list">
+            {% for block in section.blocks %}
+              <li class="klyyr-editorial__point" {{ block.shopify_attributes }}>
+                <span class="klyyr-editorial__point-title">{{ block.settings.text }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <div class="klyyr-editorial__actions">
+            <a
+              class="{% if section.settings.button_style == 'secondary' %}button-secondary{% else %}button{% endif %}"
+              {% if section.settings.button_link != blank %}
+                href="{{ section.settings.button_link }}"
+              {% else %}
+                role="link"
+                aria-disabled="true"
+              {% endif %}
+            >
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section_layout == 'split' and section.settings.image != blank %}
+        <div class="klyyr-editorial__media">
+          {{
+            section.settings.image
+            | image_url: width: 2200
+            | image_tag:
+              widths: '720, 960, 1200, 1600, 2200',
+              sizes: '(min-width: 990px) 40vw, 100vw',
+              class: 'klyyr-editorial__image'
+          }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KLYYR editorial panel",
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Designed with intention"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "split",
+          "label": "Split"
+        },
+        {
+          "value": "centered",
+          "label": "Centered"
+        }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        },
+        {
+          "value": "foil",
+          "label": "Foil"
+        }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Clear by design."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every ingredient should have a reason to be here."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>KLYYR is built around ingredient clarity, thoughtful formulation, and a cleaner approach to everyday essentials.</p>"
+    },
+    {
+      "type": "text",
+      "id": "accent_text",
+      "label": "Accent text",
+      "default": "That is the standard."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "KLYYR editorial panel",
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "text": "Clear ingredients"
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "text": "Thoughtfully formulated"
+          }
+        }
+      },
+      "block_order": ["point_1", "point_2"]
+    }
+  ]
+}
+{% endschema %}

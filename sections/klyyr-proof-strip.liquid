@@ -1,0 +1,119 @@
+{{ 'section-klyyr-home.css' | asset_url | stylesheet_tag }}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+  {{ section.shopify_attributes }}
+>
+  <div class="klyyr-home-shell klyyr-home-shell--light klyyr-proof-strip">
+    <ul class="klyyr-proof-strip__list" role="list">
+      {% for block in section.blocks %}
+        <li class="klyyr-proof-strip__item" {{ block.shopify_attributes }}>
+          <span class="klyyr-proof-strip__dot"></span>
+          <span>{{ block.settings.text }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KLYYR proof strip",
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Fluoride-Free"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "KLYYR proof strip",
+      "blocks": {
+        "proof_1": {
+          "type": "proof",
+          "settings": {
+            "text": "Fluoride-Free"
+          }
+        },
+        "proof_2": {
+          "type": "proof",
+          "settings": {
+            "text": "Hydroxyapatite"
+          }
+        },
+        "proof_3": {
+          "type": "proof",
+          "settings": {
+            "text": "Ingredient-Forward"
+          }
+        },
+        "proof_4": {
+          "type": "proof",
+          "settings": {
+            "text": "Designed for the Daily Ritual"
+          }
+        }
+      },
+      "block_order": ["proof_1", "proof_2", "proof_3", "proof_4"]
+    }
+  ]
+}
+{% endschema %}

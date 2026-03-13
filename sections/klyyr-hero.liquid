@@ -1,0 +1,215 @@
+{{ 'section-klyyr-home.css' | asset_url | stylesheet_tag }}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+  {{ section.shopify_attributes }}
+>
+  <div class="klyyr-home-shell klyyr-home-shell--dark klyyr-hero">
+    <div class="klyyr-hero__inner">
+      <div class="klyyr-hero__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="klyyr-home-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h1 class="klyyr-home-title">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.body != blank %}
+          <div class="klyyr-home-copy rte">{{ section.settings.body }}</div>
+        {% endif %}
+
+        {% if section.settings.supporting_line != blank %}
+          <p class="klyyr-home-subline">{{ section.settings.supporting_line }}</p>
+        {% endif %}
+
+        {% if section.settings.primary_label != blank or section.settings.secondary_label != blank %}
+          <div class="klyyr-home-actions">
+            {% if section.settings.primary_label != blank %}
+              <a
+                class="button"
+                {% if section.settings.primary_link != blank %}
+                  href="{{ section.settings.primary_link }}"
+                {% else %}
+                  role="link"
+                  aria-disabled="true"
+                {% endif %}
+              >
+                {{ section.settings.primary_label }}
+              </a>
+            {% endif %}
+
+            {% if section.settings.secondary_label != blank %}
+              <a
+                class="button-secondary"
+                {% if section.settings.secondary_link != blank %}
+                  href="{{ section.settings.secondary_link }}"
+                {% else %}
+                  role="link"
+                  aria-disabled="true"
+                {% endif %}
+              >
+                {{ section.settings.secondary_label }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="klyyr-hero__visual">
+        <div class="klyyr-hero__foil"></div>
+
+        <div class="klyyr-hero__image-frame">
+          {% if section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 2200
+              | image_tag:
+                widths: '720, 960, 1200, 1600, 2200',
+                sizes: '(min-width: 990px) 40vw, 100vw',
+                class: 'klyyr-hero__image',
+                loading: 'eager'
+            }}
+          {% else %}
+            <div class="klyyr-hero__placeholder">
+              KLYYR
+            </div>
+          {% endif %}
+
+          {% if section.settings.card_text != blank %}
+            <div class="klyyr-hero__card">
+              {% if section.settings.card_label != blank %}
+                <p class="klyyr-hero__card-label">{{ section.settings.card_label }}</p>
+              {% endif %}
+              <p class="klyyr-hero__card-text">{{ section.settings.card_text }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KLYYR hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Modern oral care, made clear."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A clearer standard."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Fluoride-free hydroxyapatite toothpaste with a cleaner point of view. Minimal in design, intentional in formulation, and built for the daily ritual.</p>"
+    },
+    {
+      "type": "text",
+      "id": "supporting_line",
+      "label": "Supporting line",
+      "default": "Designed to feel calm on the counter and clear in the routine."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop Toothpaste"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "card_label",
+      "label": "Card label",
+      "default": "Ingredient-forward"
+    },
+    {
+      "type": "text",
+      "id": "card_text",
+      "label": "Card text",
+      "default": "Hydroxyapatite. Fluoride-free. Minimal formula. Premium ritual."
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "KLYYR hero"
+    }
+  ]
+}
+{% endschema %}
