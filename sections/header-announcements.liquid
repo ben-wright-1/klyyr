@@ -40,7 +40,27 @@
 
 {% stylesheet %}
   .announcement-bar {
+    position: relative;
+    overflow: hidden;
     border-block-end: var(--border-bottom-width) solid var(--color-border);
+    background:
+      linear-gradient(135deg, rgba(171, 225, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 22%, rgba(255, 199, 208, 0.48) 48%, rgba(228, 255, 252, 0.7) 76%, rgba(255, 243, 167, 0.5) 100%);
+    color: #050505;
+    isolation: isolate;
+  }
+
+  .announcement-bar::before {
+    content: '';
+    position: absolute;
+    inset: -180% 42% auto -12%;
+    height: 280%;
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    filter: blur(24px);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .announcement-bar__slider {
@@ -115,6 +135,9 @@
 
   .announcement-bar__text:first-child {
     margin: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
   .announcement-bar__link {

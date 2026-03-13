@@ -25,7 +25,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   border: 0;
   border-radius: 0;
   background: #ffffff;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .klyyr-hero-shell::before {
@@ -169,12 +169,13 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   position: relative;
   min-height: clamp(20rem, 50vw, 34rem);
   isolation: isolate;
+  overflow: visible;
 }
 
 .klyyr-hero__foil {
   position: absolute;
-  inset: 8% 0 auto auto;
-  width: min(30rem, 90%);
+  inset: auto -14% -12% auto;
+  width: min(42rem, 122%);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
   background:
@@ -188,9 +189,10 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
       rgba(255, 240, 178, 0.78) 86%,
       rgba(255, 255, 255, 0.15) 100%
     );
-  filter: blur(24px);
-  opacity: 0.88;
+  filter: blur(34px);
+  opacity: 0.98;
   transform: translate3d(0, 0, 0);
+  z-index: 0;
 }
 
 .klyyr-hero .klyyr-home-copy,
@@ -203,6 +205,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 1;
   width: min(34rem, 100%);
   aspect-ratio: 4 / 5;
   border-radius: 2rem;
@@ -211,7 +214,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
   box-shadow:
-    0 1.5rem 3rem rgba(0, 0, 0, 0.35),
+    1.2rem 1.75rem 3.5rem rgba(0, 0, 0, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
@@ -230,7 +233,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.04);
+  filter: none;
 }
 
 .klyyr-hero__placeholder {
@@ -557,7 +560,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   }
 
   .klyyr-hero__foil {
-    inset: 6% -6% auto auto;
+    inset: auto -10% -10% auto;
     width: 82%;
     filter: blur(18px);
     opacity: 0.92;
