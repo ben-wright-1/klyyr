@@ -4,7 +4,9 @@
 
 /* Ensure the first KLYYR section clears transparent + sticky header states. */
 body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-section.spacing-style {
-  --section-top-offset: calc(var(--header-group-height, var(--header-height, 0px)) * var(--transparent-header-offset-boolean, 1));
+  --section-top-offset: calc(
+    (var(--header-group-height, var(--header-height, 0px)) * var(--transparent-header-offset-boolean, 1)) + 18px
+  );
 }
 
 /* Add consistent vertical rhythm between KLYYR sections. */
@@ -158,6 +160,8 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   display: grid;
   gap: 2rem;
   align-items: end;
+  width: min(calc(var(--page-content-width) + (var(--page-margin) * 2)), 100%);
+  margin: 0 auto;
   padding: clamp(2rem, 5vw, 4.5rem) 0 clamp(2.5rem, 6vw, 5rem);
 }
 
@@ -259,6 +263,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   background: rgba(8, 8, 8, 0.68);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 0.8rem 2.6rem rgba(0, 0, 0, 0.24);
+  color: #ffffff;
 }
 
 .klyyr-hero__card-label {
@@ -267,12 +272,14 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   letter-spacing: 0.14em;
   text-transform: uppercase;
   opacity: 0.68;
+  color: inherit;
 }
 
 .klyyr-hero__card-text {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.5;
+  color: inherit;
 }
 
 .klyyr-proof-strip__list {
@@ -540,7 +547,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   }
 
   .klyyr-hero__inner {
-    gap: 1rem;
+    gap: 1.7rem;
     padding: 0.9rem 0 1.4rem;
   }
 
@@ -551,6 +558,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   .klyyr-hero__visual {
     order: 2;
     min-height: 15rem;
+    margin-top: 0.2rem;
   }
 
   .klyyr-hero__foil {
@@ -590,7 +598,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   .klyyr-proof-strip__list {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(16rem, 82%);
+    grid-auto-columns: minmax(18rem, 88%);
     gap: 0.9rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -604,14 +612,16 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
   .klyyr-proof-strip__item {
     min-height: 4.25rem;
-    padding: 1rem;
+    justify-content: center;
+    padding: 1rem 1.25rem;
     border: 1px solid color-mix(in srgb, currentColor 10%, transparent);
-    border-radius: 1rem;
+    border-radius: 999px;
     background: rgba(255, 255, 255, 0.55);
     scroll-snap-align: start;
     font-size: 0.78rem;
     line-height: 1.35;
     letter-spacing: 0.12em;
+    text-align: center;
   }
 
   .klyyr-proof-strip__item:not(:last-child) {

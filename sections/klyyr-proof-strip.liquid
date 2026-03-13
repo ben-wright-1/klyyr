@@ -1,4 +1,5 @@
 {{ 'section-klyyr-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'klyyr-proof-strip.js' | asset_url }}" defer="defer"></script>
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <section
@@ -6,8 +7,12 @@
   style="{% render 'spacing-style', settings: section.settings %}"
   {{ section.shopify_attributes }}
 >
-  <div class="klyyr-home-shell klyyr-home-shell--light klyyr-proof-strip">
-    <ul class="klyyr-proof-strip__list" role="list">
+  <klyyr-proof-strip
+    class="klyyr-home-shell klyyr-home-shell--light klyyr-proof-strip"
+    data-mobile-autoplay="{{ section.settings.mobile_autoplay }}"
+    data-interval-seconds="{{ section.settings.mobile_autoplay_interval }}"
+  >
+    <ul class="klyyr-proof-strip__list" role="list" data-proof-track>
       {% for block in section.blocks %}
         <li class="klyyr-proof-strip__item" {{ block.shopify_attributes }}>
           <span class="klyyr-proof-strip__dot"></span>
@@ -15,7 +20,7 @@
         </li>
       {% endfor %}
     </ul>
-  </div>
+  </klyyr-proof-strip>
 </section>
 
 {% schema %}
@@ -57,6 +62,23 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_autoplay",
+      "label": "Auto-slide on mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_autoplay_interval",
+      "label": "Mobile auto-slide interval",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 4,
+      "visible_if": "{{ section.settings.mobile_autoplay }}"
     },
     {
       "type": "header",

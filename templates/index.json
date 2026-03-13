@@ -5,16 +5,15 @@
       "settings": {
         "image": "shopify://shop_images/klyyr_header.jpg",
         "eyebrow": "Modern oral care, made clear.",
-        "heading": "A clearer standard.",
+        "heading": "A clear standard.",
         "body": "<p>Fluoride-free hydroxyapatite toothpaste with a cleaner point of view. Minimal in design, intentional in formulation, and built for the daily ritual.</p>",
-        "supporting_line": "Designed to feel calm on the counter and clear in the routine.",
         "primary_label": "Shop Toothpaste",
         "primary_link": "shopify://collections/all",
         "secondary_label": "Learn More",
         "secondary_link": "#ingredient-philosophy",
         "card_label": "Ingredient-forward",
         "card_text": "Hydroxyapatite. Fluoride-free. Minimal formula. Premium ritual.",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 24,
         "padding-block-end": 12
@@ -52,6 +51,8 @@
       "settings": {
         "section_width": "page-width",
         "color_scheme": "scheme-1",
+        "mobile_autoplay": true,
+        "mobile_autoplay_interval": 4,
         "padding-block-start": 12,
         "padding-block-end": 24
       }
