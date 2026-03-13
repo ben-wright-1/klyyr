@@ -39,12 +39,17 @@
 </aside>
 
 {% stylesheet %}
+  .shopify-section:has(.announcement-bar) .section-background {
+    background:
+      linear-gradient(135deg, rgba(171, 225, 255, 0.32) 0%, rgba(255, 255, 255, 0.92) 22%, rgba(255, 199, 208, 0.26) 48%, rgba(228, 255, 252, 0.5) 76%, rgba(255, 243, 167, 0.28) 100%);
+  }
+
   .announcement-bar {
     position: relative;
     overflow: hidden;
     border-block-end: var(--border-bottom-width) solid var(--color-border);
     background:
-      linear-gradient(135deg, rgba(171, 225, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 22%, rgba(255, 199, 208, 0.48) 48%, rgba(228, 255, 252, 0.7) 76%, rgba(255, 243, 167, 0.5) 100%);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 100%);
     color: #050505;
     isolation: isolate;
   }
@@ -59,6 +64,20 @@
       linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
     filter: blur(24px);
     opacity: 0.8;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .announcement-bar::after {
+    content: '';
+    position: absolute;
+    inset: auto -8% -160% 52%;
+    height: 260%;
+    border-radius: 999px;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+    filter: blur(28px);
+    opacity: 0.55;
     pointer-events: none;
     z-index: -1;
   }
