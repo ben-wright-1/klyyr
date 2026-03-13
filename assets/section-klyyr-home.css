@@ -503,7 +503,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
 @media screen and (max-width: 989px) {
   .klyyr-hero__visual {
-    margin-top: 0.8rem;
+    margin-top: 1.25rem;
   }
 
   .klyyr-proof-strip__item:not(:last-child) {
@@ -535,26 +535,26 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
   .klyyr-home-eyebrow {
     margin-bottom: 0.75rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
   }
 
   .klyyr-home-title {
     max-width: 10ch;
     font-size: clamp(2.25rem, 10.5vw, 3.5rem);
-    line-height: 0.95;
+    line-height: 1.02;
   }
 
   .klyyr-home-copy {
     margin-top: 1rem;
-    font-size: 0.98rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.55;
   }
 
   .klyyr-home-subline {
     margin-top: 0.85rem;
-    font-size: 0.86rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .klyyr-home-actions {
@@ -579,7 +579,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   .klyyr-hero__visual {
     order: 2;
     min-height: 0;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 
   .klyyr-hero__foil {
@@ -611,12 +611,13 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
   .klyyr-hero__card-label {
     margin-bottom: 0.35rem;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
   }
 
   .klyyr-hero__card-text {
-    font-size: 0.88rem;
-    line-height: 1.42;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .klyyr-proof-strip__list {
@@ -642,9 +643,9 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.55);
     scroll-snap-align: start;
-    font-size: 0.78rem;
-    line-height: 1.35;
-    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
     text-align: center;
   }
 
@@ -668,18 +669,18 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   .klyyr-editorial__title {
     max-width: 11ch;
     font-size: clamp(1.85rem, 8vw, 2.5rem);
-    line-height: 0.98;
+    line-height: 1.04;
   }
 
   .klyyr-editorial__body {
     margin-top: 1rem;
-    font-size: 0.97rem;
-    line-height: 1.58;
+    font-size: 1rem;
+    line-height: 1.62;
   }
 
   .klyyr-editorial__accent {
     margin-top: 1rem;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     letter-spacing: 0.1em;
   }
 
@@ -695,8 +696,8 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
   }
 
   .klyyr-editorial__point-title {
-    font-size: 0.74rem;
-    line-height: 1.35;
+    font-size: 0.78rem;
+    line-height: 1.4;
     letter-spacing: 0.1em;
   }
 
