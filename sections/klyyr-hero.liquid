@@ -2,8 +2,8 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <section
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section"
-  style="{% render 'spacing-padding', settings: section.settings %}"
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
   {{ section.shopify_attributes }}
 >
   <div class="klyyr-home-shell klyyr-home-shell--dark klyyr-hero">

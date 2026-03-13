@@ -14,11 +14,11 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <section
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section"
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} klyyr-home-section spacing-style"
   {% if section.settings.anchor_id != blank %}
     id="{{ section.settings.anchor_id | handleize }}"
   {% endif %}
-  style="{% render 'spacing-padding', settings: section.settings %}"
+  style="{% render 'spacing-style', settings: section.settings %}"
   {{ section.shopify_attributes }}
 >
   <div
