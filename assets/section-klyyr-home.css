@@ -503,7 +503,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 
 @media screen and (max-width: 989px) {
   .klyyr-hero__visual {
-    margin-top: 1rem;
+    margin-top: .5rem;
   }
 
   .klyyr-proof-strip__item:not(:last-child) {
