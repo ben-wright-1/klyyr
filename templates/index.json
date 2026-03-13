@@ -13,9 +13,9 @@
       "type": "klyyr-hero",
       "settings": {
         "image": "shopify://shop_images/klyyr_header.jpg",
-        "eyebrow": "Modern oral care, made clear.",
-        "heading": "A clear standard.",
-        "body": "<p>Fluoride-free hydroxyapatite toothpaste with a cleaner point of view. Minimal in design, intentional in formulation, and built for the daily ritual.</p>",
+        "eyebrow": "Modern oral care, made klyyr.",
+        "heading": "A klyyr standard.",
+        "body": "<p>Fluoride-free hydroxyapatite toothpaste with a cleaner point of view. Minimal ingredients, intentional in formulation, and built for the daily ritual.</p>",
         "primary_label": "Shop Toothpaste",
         "primary_link": "shopify://collections/all",
         "secondary_label": "Learn More",
@@ -56,7 +56,12 @@
           }
         }
       },
-      "block_order": ["proof_1", "proof_2", "proof_3", "proof_4"],
+      "block_order": [
+        "proof_1",
+        "proof_2",
+        "proof_3",
+        "proof_4"
+      ],
       "settings": {
         "section_width": "page-width",
         "color_scheme": "scheme-1",
@@ -126,7 +131,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "product_list_button": {
               "type": "_product-list-button",
@@ -139,10 +145,14 @@
                 "custom_width": 100,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100
-              }
+              },
+              "blocks": {}
             }
           },
-          "block_order": ["product_list_text", "product_list_button"]
+          "block_order": [
+            "product_list_text",
+            "product_list_button"
+          ]
         },
         "static-product-card": {
           "type": "_product-card",
@@ -175,7 +185,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "product_title": {
               "type": "product-title",
@@ -199,7 +210,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             },
             "price": {
               "type": "price",
@@ -221,10 +233,15 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {}
             }
           },
-          "block_order": ["product_card_gallery", "product_title", "price"]
+          "block_order": [
+            "product_card_gallery",
+            "product_title",
+            "price"
+          ]
         }
       },
       "settings": {
@@ -275,7 +292,12 @@
           }
         }
       },
-      "block_order": ["point_1", "point_2", "point_3", "point_4"],
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3",
+        "point_4"
+      ],
       "settings": {
         "anchor_id": "ingredient-philosophy",
         "layout": "split",
@@ -317,8 +339,13 @@
           }
         }
       },
-      "block_order": ["point_1", "point_2", "point_3"],
+      "block_order": [
+        "point_1",
+        "point_2",
+        "point_3"
+      ],
       "settings": {
+        "anchor_id": "",
         "layout": "centered",
         "style": "dark",
         "image_position": "right",
@@ -338,6 +365,7 @@
     "klyyr_closing_cta": {
       "type": "klyyr-editorial-panel",
       "settings": {
+        "anchor_id": "",
         "layout": "centered",
         "style": "foil",
         "image_position": "right",
