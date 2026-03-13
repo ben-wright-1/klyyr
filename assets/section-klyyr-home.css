@@ -24,7 +24,7 @@ body:has(.header[transparent]) main > .shopify-section:first-child .klyyr-home-s
 .klyyr-hero-shell {
   border: 0;
   border-radius: 0;
-  background: linear-gradient(180deg, rgba(239, 239, 239, 0.92) 0%, rgba(255, 255, 255, 0.98) 58%);
+  background: #ffffff;
   overflow: hidden;
 }
 
